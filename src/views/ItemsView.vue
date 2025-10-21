@@ -556,10 +556,7 @@ const saveItem = async () => {
   message.value = ''
 
   try {
-    const result = await ItemsService.updateItem(
-      editingItem.value.id,
-      editingItem.value
-    )
+    const result = await ItemsService.updateItem(editingItem.value)
 
     if (result.success) {
       message.value = result.message

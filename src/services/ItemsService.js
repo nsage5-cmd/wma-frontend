@@ -74,17 +74,19 @@ class ItemsService {
     }
   }
 
-  async updateItem(itemId, itemData) {
+  async updateItem(itemData) {
     try {
-      const response = await fetch(`${API_BASE_URL}/items/update.php`, {
-        method: 'PUT',
+      const response = await fetch(`${API_BASE_URL}/items/handle.php`, {
+        method: 'POST',
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          item_id: itemId,
-          item_data: itemData
+          item: {
+            value: itemData
+          },
+          action: 'update'
         })
       })
 
@@ -117,15 +119,16 @@ class ItemsService {
 
   async createItem(itemData) {
     try {
-      const response = await fetch(`${API_BASE_URL}/items/create.php`, {
+      const response = await fetch(`${API_BASE_URL}/items/handle.php`, {
         method: 'POST',
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+          action: 'create',
           item: {
-            _value: itemData
+            value: itemData
           }
         })
       })
