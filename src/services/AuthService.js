@@ -67,7 +67,7 @@ class AuthService {
         credentials: 'include',
         body: JSON.stringify({
           user: {
-            _value: credentials
+            value: credentials
           }
         })
       })
@@ -108,7 +108,7 @@ class AuthService {
         credentials: 'include',
         body: JSON.stringify({
           user: {
-            _value: credentials
+            value: credentials
           }
         })
       })

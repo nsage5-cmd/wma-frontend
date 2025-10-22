@@ -82,7 +82,7 @@ async function submitForm() {
       router.push('/')
     } else {
       loginError.value = true
-      loginErrorMessage.value = result.error || 'Wrong password or email'
+      loginErrorMessage.value = 'Wrong password or email'
     }
   } catch (error) {
     console.error('Login error:', error)
