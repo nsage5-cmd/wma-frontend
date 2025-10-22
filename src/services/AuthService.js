@@ -155,12 +155,11 @@ class AuthService {
 
       const data = await response.json()
       console.log('Logout response:', data)
-    } catch (error) {
-      console.error('Logout request failed:', error)
-    } finally {
       this.isAuthenticated = false
       this.user = null
       console.log('Local auth state cleared')
+    } catch (error) {
+      console.error('Logout request failed:', error)
     }
   }
 
